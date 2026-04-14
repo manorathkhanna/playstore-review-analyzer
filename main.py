@@ -189,8 +189,7 @@ def main():
 
     
 
-    for e in events:
-        print(e)
+
 
     events = []
 
@@ -204,7 +203,7 @@ def main():
                 "date": date.strip()
             })
 
-    print(f"Total events: {len(events)}")
+     print("EVENTS:", events)
 
     # =========================
     # STEP 0: Ensure date exists
