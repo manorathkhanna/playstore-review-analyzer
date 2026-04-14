@@ -1,0 +1,7 @@
+pandas
+matplotlib
+numpy
+google-play-scraper
+openai
+markdown
+Pillow
