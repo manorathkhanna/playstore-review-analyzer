@@ -187,7 +187,7 @@ def main():
 
     print(selection_text)
 
-    print(f"Total events: {len(events)}")
+    
 
     for e in events:
         print(e)
@@ -204,7 +204,7 @@ def main():
                 "date": date.strip()
             })
 
-    print(events)
+    print(f"Total events: {len(events)}")
 
     # =========================
     # STEP 0: Ensure date exists
