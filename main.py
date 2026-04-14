@@ -203,7 +203,7 @@ def main():
                 "date": date.strip()
             })
 
-     print("EVENTS:", events)
+    print("EVENTS:", events)
 
     # =========================
     # STEP 0: Ensure date exists
