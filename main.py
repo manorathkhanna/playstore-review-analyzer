@@ -520,7 +520,7 @@ def main():
 
     df_plot = grouped[grouped['appVersion'].isin(top_versions)]
 
-    plt.figure(figsize=(12, 5))
+    plt.figure(figsize=(16, 6))
 
     for version in top_versions:
         temp = df_plot[df_plot['appVersion'] == version]
@@ -627,7 +627,7 @@ def main():
     <h2>15 Days iMobile PlayStore Analysis</h2>
 
     <p><b>Rating Trend (Top Versions):</b></p>
-    <img src="cid:rating_graph" style="max-width:600px;"><br><br>
+    <img src="cid:rating_graph" style="width:100%; max-width:1000px; height:auto;">><br><br>
 
     {html_content}
 
