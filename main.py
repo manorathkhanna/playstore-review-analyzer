@@ -449,32 +449,26 @@ def main():
 
     Section 2: Key Version Analysis (ONLY top 2 high-volume versions)
 
-    For EACH version, follow EXACT structure:
+    Instead of descriptive paragraphs, present the output in a structured table format.
 
-    Version <X>
+    Table format:
+    
+    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
+    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
+    
+    Rules:
+    - One row per anomaly (only for top 2 versions)
+    - Trend Summary = 1 short line (stable / volatile / declining with context)
+    - Anomaly = include date (dd Mon) + what changed
+    - RCA = 1–2 issue categories only (crisp)
+    - Example = Include 1–2 short real user complaints (paraphrased, not raw dump
+    - Keep everything concise (no long sentences)
+    - Do NOT add any text outside the table
+    - Output MUST be in markdown table format
 
-    Trend Summary:
-    - Describe how ratings evolved over last 15 days (stable / volatile / improving / declining)
-    - Mention only meaningful movements (not daily noise)
-
-    Anomaly 1: <Date – dd Mon format> title
-    What happened: (rating drop + scale/volume context)
-    ...
-    What changed vs best day:(Were issues new OR did existing issues increase?)
-    ...
-    Root Cause:1–2 major issue categories (clear naming)
-    ...
-    Examples:(Include 1–2 short real user complaints (paraphrased, not raw dump))
-    ...
-
-    Anomaly 2: <Date – dd Mon format> title
-    - Same structure as above
-
-    Rules for anomaly selection:
-    - Prioritize high-volume + high-impact days
-    - Ignore low-volume noise unless extreme
-
-    ---
+    
 
     Section 3: Other Versions
     - 2–3 line summary
