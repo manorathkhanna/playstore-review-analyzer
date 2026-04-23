@@ -453,16 +453,16 @@ def main():
 
     Table format:
     
-    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
-    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day:(Were issues new OR did existing issues increase?) | Example 1,2
+    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Example 1,2
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Example 1,2
+    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Example 1,2
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Example 1,2
     
     Rules:
     - One row per anomaly (only for top 2 versions)
     - Trend Summary = 1 short line (stable / volatile / declining with context)
-    - Anomaly = include date (dd Mon) + what changed
-    - RCA = 1–2 issue categories only (crisp)
+    - Anomaly = include date (dd Mon)
+    - RCA = 1–2 issue categories only (crisp) What changed vs best day:(Were issues new OR did existing issues increase?)
     - Example = Include 1–2 short real user complaints (paraphrased, not raw dump
     - Keep everything concise (no long sentences)
     - Do NOT add any text outside the table
@@ -585,11 +585,6 @@ def main():
     html_content = f"""
     <html>
     <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #000;">
-    
-    <h2>15 Days iMobile PlayStore Analysis</h2>
-    
-    <p><b>Rating Trend (Top Versions):</b></p>
-    <img src="cid:rating_graph" style="max-width:650px;"><br><br>
     
     <style>
     table {{
