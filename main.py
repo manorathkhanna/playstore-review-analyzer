@@ -406,7 +406,7 @@ def main():
         # CALL OPENAI
         # -------------------------
         response = client.chat.completions.create(
-            model="gpt-4.1-mini",
+            model="gpt-4.1",
             messages=[{"role": "user", "content": why_prompt}],
             temperature=0.2
         )
@@ -457,17 +457,17 @@ def main():
     - Describe how ratings evolved over last 15 days (stable / volatile / improving / declining)
     - Mention only meaningful movements (not daily noise)
 
-    Anomaly 1: <Date – dd Mon format>
-    - What happened: (rating drop + scale/volume context)
-    - ...
-    - What changed vs best day:(Were issues new OR did existing issues increase?)
-    - ...
-    - Root Cause:1–2 major issue categories (clear naming)
-    - ...
-    - Examples:(Include 1–2 short real user complaints (paraphrased, not raw dump))
-    - ...
+    Anomaly 1: <Date – dd Mon format> title
+    What happened: (rating drop + scale/volume context)
+    ...
+    What changed vs best day:(Were issues new OR did existing issues increase?)
+    ...
+    Root Cause:1–2 major issue categories (clear naming)
+    ...
+    Examples:(Include 1–2 short real user complaints (paraphrased, not raw dump))
+    ...
 
-    Anomaly 2: <Date – dd Mon format>
+    Anomaly 2: <Date – dd Mon format> title
     - Same structure as above
 
     Rules for anomaly selection:
