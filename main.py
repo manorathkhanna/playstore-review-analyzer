@@ -453,18 +453,18 @@ def main():
 
     Table format:
     
-    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Example 1,2
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Example 1,2
-    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Example 1,2
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Example 1,2
+    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Examples
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Examples
+    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Examples
+                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Examples
     
     Rules:
     - One row per anomaly (only for top 2 versions)
     - Trend Summary = 1 short line (stable / volatile / declining with context)
     - Anomaly = include date (dd Mon)
-    - RCA = 1–2 issue categories only (crisp) What changed vs best day:(Were issues new OR did existing issues increase?)
-    - Example = Include 1–2 short real user complaints (paraphrased, not raw dump
-    - Keep everything concise (no long sentences)
+    - RCA = 1–2 major issue categories What changed vs best day:(Were issues new OR did existing issues increase?)
+    - Example = Include 1–2 short real user complaints (paraphrased, not raw dump)
+    - Keep everything concise
     - Do NOT add any text outside the table
     - Output MUST be in markdown table format
 
@@ -582,41 +582,21 @@ def main():
 
     html_content = markdown.markdown(final_report, extensions=["tables"])
 
-    html_content = f"""
-    <html>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #000;">
+    # 🔥 Inject inline styles into table
+    html_content = html_content.replace(
+        "<table>",
+        '<table style="border-collapse: collapse; width: 100%; border: 2px solid black;">'
+    )
     
-    <style>
-    table {{
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 10px;
-      border: 2px solid #333;
-    }}
+    html_content = html_content.replace(
+        "<th>",
+        '<th style="border: 1px solid black; padding: 8px; background-color: #e0e0e0;">'
+    )
     
-    th, td {{
-      border: 1.5px solid #333;
-      padding: 10px;
-      text-align: left;
-      vertical-align: top;
-    }}
-    
-    th {{
-      background-color: #e0e0e0;
-      font-weight: bold;
-      border-bottom: 2px solid #000;
-    }}
-    
-    tr:nth-child(even) {{
-      background-color: #f9f9f9;
-    }}
-    </style>
-    
-    {html_content}
-    
-    </body>
-    </html>
-    """
+    html_content = html_content.replace(
+        "<td>",
+        '<td style="border: 1px solid black; padding: 8px; vertical-align: top;">'
+    )
 
     sender_email = os.getenv("EMAIL_SENDER")
     app_password = os.getenv("EMAIL_PASSWORD")
