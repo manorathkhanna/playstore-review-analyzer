@@ -447,26 +447,30 @@ def main():
 
     ---
 
-    Section 2: Key Version Analysis (ONLY top 2 high-volume versions)
+    Section 2: Key Version Analysis
 
-    Instead of descriptive paragraphs, present the output in a structured table format.
-
-    Table format:
+    For each key version:
     
-    Version 1 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Examples
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Examples
-    Version 2 | Trend Summary | Anomaly 1 (Date + What happened) | RCA 1 and What changed vs best day| Examples
-                              | Anomaly 2 (Date + What happened) | RCA 2 and What changed vs best day| Examples
+    1. Start with version header:
+       Version X.X
+    
+    2. Add Trend Summary:
+    - Describe how ratings evolved over last 15 days (stable / volatile / improving / declining)
+    - Mention only meaningful movements (not daily noise)
+    
+    3. Then add a table(Anomalies) with columns:
+       Date | What Happened | RCA and what changed | Example
     
     Rules:
-    - One row per anomaly (only for top 2 versions)
-    - Trend Summary = 1 short line (stable / volatile / declining with context)
-    - Anomaly = include date (dd Mon)
-    - RCA = 1–2 major issue categories What changed vs best day:(Were issues new OR did existing issues increase?)
-    - Example = Include 1–2 short real user complaints (paraphrased, not raw dump)
-    - Keep everything concise
-    - Do NOT add any text outside the table
-    - Output MUST be in markdown table format
+    - Only include 2–3 most important anomalies
+    - Each row = one anomaly
+    - What happened (rating drop + scale/volume context)
+    - What changed vs best day(Were issues new OR did existing issues increase?)
+    - Root Cause:1–2 major issue categories (clear naming)
+    - Examples(Include 1–2 short real user complaints (paraphrased, not raw dump))
+    - Keep everything concise and scannable
+    - Output MUST be in markdown format
+    - Do NOT merge versions into one table
 
     
 
