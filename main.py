@@ -580,12 +580,43 @@ def main():
 
 
 
-    html_content = markdown.markdown(final_report)
+    html_content = html_content = markdown.markdown(final_report, extensions=["tables"])
 
     html_content = f"""
     <html>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6;">
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #000;">
+    
+    <style>
+    table {{
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }}
+    
+    th, td {{
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }}
+    
+    th {{
+      background-color: #f4f4f4;
+      font-weight: bold;
+    }}
+    
+    tr:nth-child(even) {{
+      background-color: #fafafa;
+    }}
+    </style>
+    
+    <h2>15 Days iMobile PlayStore Analysis</h2>
+    
+    <p><b>Rating Trend (Top Versions):</b></p>
+    <img src="cid:rating_graph" style="max-width:600px;"><br><br>
+    
     {html_content}
+    
     </body>
     </html>
     """
