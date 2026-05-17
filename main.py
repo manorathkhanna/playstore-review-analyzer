@@ -359,7 +359,7 @@ def main():
         good_sample = df_good.sample(n=min(15, len(df_good)), random_state=42) if len(df_good) > 0 else pd.DataFrame()
 
         bad_reviews = bad_sample['content'].tolist()
-        good_reviews = good_sample['content'].tolist()
+        good_reviews = good_sample['content'].tolist() if 'content' in good_sample.columns else []
 
         # -------------------------
         # TEXT FORMAT
